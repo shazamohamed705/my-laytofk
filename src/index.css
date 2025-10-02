@@ -1,0 +1,479 @@
+@import "tailwindcss";
+
+/* Global Arabic RTL base */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  #root {
+    padding-top: 64px; /* offset for fixed header so content doesn't slide under */
+  }
+  body {
+    /* Tailwind CSS directives */
+    @apply bg-[#000000] text-white antialiased m-0;
+    font-family: 'Changa', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+}
+
+/* Performance optimized utilities */
+@layer utilities {
+  .grid-bg {
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(99,102,241,.12) 0, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(59,130,246,.09) 0, transparent 45%),
+      radial-gradient(circle at 60% 70%, rgba(16,185,129,.08) 0, transparent 50%),
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    background-position: center center, center center, center center, 0 0, 0 0;
+    will-change: transform;
+  }
+  
+  .grid-mask {
+    -webkit-mask-image: radial-gradient(circle at 50% 40%, rgba(0,0,0,1), rgba(0,0,0,.4) 60%, rgba(0,0,0,0) 85%);
+            mask-image: radial-gradient(circle at 50% 40%, rgba(0,0,0,1), rgba(0,0,0,.4) 60%, rgba(0,0,0,0) 85%);
+  }
+
+  /* Performance optimized animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* تحسينات إضافية للـ spinner */
+  .spinner-double {
+    position: relative;
+  }
+  
+  .spinner-double::before,
+  .spinner-double::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .spinner-double::before {
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #235CFD;
+  }
+  
+  .spinner-double::after {
+    width: 100%;
+    height: 100%;
+    border: 4px solid transparent;
+    border-right-color: rgba(35, 92, 253, 0.5);
+    animation-direction: reverse;
+    animation-duration: 1.5s;
+  }
+
+  /* Optimized hover effects */
+  .hover-lift {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Optimized text rendering */
+  .text-optimized {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Section spacing utility */
+  .section {
+    padding: 60px 0;
+    position: relative;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  /* Hero title size */
+  .hero-title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* Contact form labels */
+  .form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  /* Contact info text */
+  .contact-info {
+    font-size: 0.875rem;
+  }
+
+  /* Testimonial text */
+  .testimonial-text {
+    font-size: 0.875rem;
+  }
+
+  /* Partner text */
+  .partner-text {
+    font-size: 1.125rem;
+  }
+
+  /* Small text sizes */
+  .text-xs {
+    font-size: 0.75rem;
+  }
+
+  .text-sm {
+    font-size: 0.875rem;
+  }
+
+  .text-base {
+    font-size: 1rem;
+  }
+
+  .text-lg {
+    font-size: 1.125rem;
+  }
+
+  /* Pricing card text */
+  .pricing-title {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  .pricing-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .pricing-item {
+    font-size: 0.875rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: #9ca3af;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    margin: 40px 0;
+  }
+
+  /* Custom section spacing */
+  .section-small {
+    padding: 40px 0;
+  }
+
+  .section-large {
+    padding: 80px 0;
+  }
+
+  .section-hero {
+    padding: 80px 0 60px 0;
+  }
+
+  .section-contact {
+    padding: 50px 0;
+  }
+
+  .section-gallery {
+    padding: 50px 0;
+  }
+
+  /* Specific section margins */
+  .section-about {
+    margin-top: 0;
+    padding: 60px 0;
+  }
+
+  .section-services {
+    margin: 60px 0;
+    padding: 60px 0;
+  }
+
+  .section-pricing {
+    margin: 40px 0;
+    padding: 60px 0;
+  }
+
+  .section-projects {
+    margin: 40px 0;
+    padding: 60px 0;
+  }
+
+  .section-testimonials {
+    margin: 40px 0;
+    padding: 50px 0;
+  }
+
+  /* Internal element spacing */
+  .section-content {
+    margin-bottom: 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-body {
+    margin: 2rem 0;
+  }
+
+  /* Reduced margins for mobile */
+  @media (max-width: 768px) {
+    .section {
+      padding: 40px 0;
+    }
+    
+    .section-divider {
+      margin: 30px 0;
+    }
+    
+    .section-large {
+      padding: 50px 0;
+    }
+  }
+
+  /* Performance optimized gradients */
+  .gradient-primary {
+    background: linear-gradient(135deg, #235CFD 0%, #4f46e5 100%);
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, #f71fa6 0%, #f59e0b 100%);
+  }
+
+  /* Optimized button styles */
+  .btn-primary {
+    background: linear-gradient(135deg, #235CFD 0%, #4f46e5 100%);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(35, 92, 253, 0.4);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  /* Optimized card styles */
+  .card-optimized {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .card-optimized h3 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .card-optimized p {
+    font-size: 0.875rem;
+  }
+
+  .card-optimized:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(35, 92, 253, 0.3);
+    transform: translateY(-4px);
+  }
+
+  /* Optimized image loading */
+  .img-optimized {
+    will-change: transform;
+    transition: transform 0.3s ease;
+  }
+
+  .img-optimized:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure sections offset under sticky header without JS */
+section.scroll-mt\[110px\] {
+  scroll-margin-top: 110px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Optimized focus states for accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #235CFD;
+  outline-offset: 2px;
+}
+
+/* Optimized selection styles */
+::selection {
+  background-color: rgba(35, 92, 253, 0.3);
+  color: white;
+}
+
+/* Optimized scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(35, 92, 253, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(35, 92, 253, 0.7);
+}
+
+/* Rainbow Draw Animation - Real Rainbow Effect */
+@keyframes rainbow-draw {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  15% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  85% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+/* Rainbow Draw Animation Class */
+.rainbow-draw-animation {
+  animation: rainbow-draw 3s ease-in-out infinite;
+}
+
+/* Individual Rainbow Arc Animations with Staggered Delays */
+.rainbow-draw-animation:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.rainbow-draw-animation:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.rainbow-draw-animation:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.rainbow-draw-animation:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.rainbow-draw-animation:nth-child(5) {
+  animation-delay: 2s;
+}
