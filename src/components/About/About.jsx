@@ -67,9 +67,7 @@ export default function About() {
                 </div>
               </div>
               <div className="mt-6 flex justify-center">
-                <button className="rounded-full border border-white/20 text-white/70 px-6 py-2 text-xs">
-                  اقرأ المزيد عنا
-                </button>
+                
               </div>
             </div>
           </div>
